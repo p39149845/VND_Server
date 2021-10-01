@@ -1,0 +1,209 @@
+type Query {
+  user: User
+  admin: Admin
+  allUser: [User]!
+  vehicle(id:ID!):Vehicle
+  allVehicle:[Vehicle]!
+  allMetadata:[Metadata]!
+  allRequest:[Request]!
+  allWorkDay:[WorkDay]!
+  allReview:[Review]!
+}
+
+type Mutation {
+  login(email:String! password:String!):AuthDataUser
+
+  signup(name: String!, email: String!, password: String!): User
+  signupDriver(name: String!, email: String!, password: String! , status:Boolean!): User
+
+  loginAdmin(email:String! password:String!):AuthDataAdmin
+
+  signupAdmin(name: String!, email: String!, password: String!): User
+  
+  createRequest(
+    id:ID!
+    vehicleId: ID!
+    country: String!
+    numberPeople: String!
+    startDate: String!
+    stopDate: String!
+    startLocation: String!
+    cost: Int
+    locationDescription: String!
+  ): Request!
+
+  updateVehicle(
+    id:ID!
+    description:String
+    country: String
+    regBook: String!
+    regBookIm: String!
+    price:Float
+    imageUrl:[String]
+    numberPeople: String
+    karaoke: Boolean
+    tv: Boolean
+    gps: Boolean 
+    typeSeat: String
+    foodDrink: Boolean
+  ): Vehicle!
+
+  updateForAdmin(
+    id:ID!
+    status: Boolean!
+  ): Metadata!
+
+  createWorkDay(
+    date:String!
+  ): WorkDay!
+
+  updateRequest(
+    id:ID!
+    status: String
+  ): Request!
+
+  deleteVehicle(id: ID!): Vehicle!
+  
+  createVehicle(
+    description: String!
+    additional:[String]!
+    regBook: String!
+    regBookIm: String!
+    price: Float!
+    imageUrl: [String]!
+    country: String!
+    numberPeople: String!
+    foodDrink: Boolean!
+    tv:Boolean!
+    karaoke:Boolean!
+    gps:Boolean!
+  ): Vehicle!
+
+  createDriverMetadata(
+    image: String!
+    gender: String!
+    userName: String!
+    dateOfBirth:String!
+    idCard: String!
+    driverlicense: String!
+    idCardIm: String!
+    driverlicenseIm: String!
+  ): Metadata!
+
+  createReview(
+    id: ID!
+    vehicleId: ID!
+    review: String!
+    star: Int!
+    reviewVehicle: String!
+    starVehicle: Int!
+  ): Review!
+
+}
+
+scalar Date
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  password: String!
+  status: Boolean!
+  metadata: [Metadata]!
+  vehicles: [Vehicle]!
+  requests: [Request]!
+  workDay:[WorkDay]!
+  review:[Review]!
+  userCreatedAt: Date!
+}
+
+type Admin {
+  id:ID!
+  name: String!
+  email: String!
+  password: String!
+}
+
+type Vehicle {
+  id: ID!
+  description:String!
+  additional: [String]!
+  numberPeople: String!
+  regBook: String!
+  regBookIm: String!
+  karaoke: Boolean!
+  tv: Boolean!
+  gps: Boolean! 
+  foodDrink: Boolean!
+  country: String!
+  price: Float!
+  imageUrl: [String]!
+
+  review: [Review]!
+  requests: [Request]!
+  
+  user: User!
+  vehicleCreatedAt: Date!
+}
+
+type Request {
+  id: ID!
+  country: String!
+  numberPeople: String!
+  startDate: String!
+  stopDate: String!
+  startLocation: String!
+  locationDescription: String!
+  status: String!
+  reqCreatedAt: Date!
+  cost: Int!
+  user: User!
+  targetUser:User!
+  targetVehicle: Vehicle!
+}
+
+type AuthDataUser{
+  user:User
+  jwt:String
+}
+
+type AuthDataAdmin{
+  admin:Admin
+  jwt:String
+}
+
+type Metadata{
+  id: ID!
+  image: String!
+  userName:String!
+  gender: String!
+  dateOfBirth:String!
+  idCard: String!
+  driverlicense: String!
+  idCardIm: String!
+  driverlicenseIm: String!
+  user: User!
+  status: Boolean
+}
+
+type WorkDay {
+  id: ID!
+  date: String!
+  user: User!
+}
+
+type Review {
+  id: ID!
+  review: String!
+  star: Int!
+  reviewVehicle: String!
+  starVehicle: Int!
+  user: User!
+  vehicle: Vehicle!
+}
+
+
+
+
+
+
