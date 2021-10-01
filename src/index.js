@@ -13,7 +13,7 @@ googlePassportConfig()
 const app = express();
 
 const DB_URL = process.env.DB_URL
-const port = process.env.PORT || 4000
+
 const createServer = async () => {
 
   try {
@@ -37,8 +37,8 @@ const createServer = async () => {
       googleAuth
     )
 
-    app.listen(port, () =>
-      console.log(`Server run on http://localhost:${port}${server.graphqlPath}`)
+    app.listen(process.env.PORT || 4000, () =>
+      console.log(`Server run on http://localhost:4000${server.graphqlPath}`)
     )
 
   } catch (error) {
