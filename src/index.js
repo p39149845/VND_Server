@@ -38,7 +38,7 @@ const createServer = async () => {
     )
 
     app.listen(port, () =>
-      console.log(`Server run on http://localhost:4000${server.graphqlPath}`)
+      console.log(`Server run on http://localhost:${port}${server.graphqlPath}`)
     )
 
   } catch (error) {
