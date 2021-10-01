@@ -12,12 +12,10 @@ googlePassportConfig()
 
 const app = express();
 
-const DB_URL = process.env.DB_URL
-
 const createServer = async () => {
 
   try {
-    await mongoose.connect(DB_URL,
+    await mongoose.connect(process.env.DB_URL,
       { useUnifiedTopology: true }
       )
 
