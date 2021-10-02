@@ -14,6 +14,7 @@ const typeDefs = fs
   const server = new ApolloServer({
     typeDefs,
     resolvers,
+    playground: true,
     context: ({ req }) => {
       const token = req.headers.authorization || ""
   
