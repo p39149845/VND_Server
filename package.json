@@ -6,10 +6,6 @@
   "scripts": {
     "start": "nodemon -r esm src/index.js"
   },
-  "engines": {
-    "node": "14.17.2",
-    "npm": "6.14.13"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
