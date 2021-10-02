@@ -35,7 +35,7 @@ const createServer = async () => {
       googleAuth
     )
 
-    app.listen(process.env.PORT || 4000, () =>
+    app.listen(process.env.PORT || 4000,process.env.LOCAL_ADDRESS, () =>
       console.log(`Server run on http://localhost:4000${server.graphqlPath}`)
     )
 
