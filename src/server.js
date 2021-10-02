@@ -15,9 +15,9 @@ const typeDefs = fs
     typeDefs,
     resolvers,
     playground: true,
+    introspection: true,
     context: ({ req }) => {
       const token = req.headers.authorization || ""
-  
       // Extract DriverId from token
       const userId = getUser(token)
       const adminId = getAdmin(token)
