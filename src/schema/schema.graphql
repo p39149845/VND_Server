@@ -25,6 +25,7 @@ type Mutation {
     vehicleId: ID!
     country: String!
     numberPeople: String!
+    destination: String!
     startDate: String!
     stopDate: String!
     startLocation: String!
@@ -153,6 +154,7 @@ type Request {
   startDate: String!
   stopDate: String!
   startLocation: String!
+  destination: String!
   locationDescription: String!
   status: String!
   reqCreatedAt: Date!
