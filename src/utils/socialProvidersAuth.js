@@ -33,6 +33,6 @@ export const googleAuth = async (req, res) => {
     res.cookie('jwt', token)
     res.redirect('https://client492.herokuapp.com')
   } catch (error) {
-    res.redirect('https://client492.herokuapp.com/signIn')
+    res.redirect('https://client492.herokuapp.com/signIn') || res.redirect('https://client492.herokuapp.com/signUp')
   }
 }
