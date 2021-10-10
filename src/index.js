@@ -35,15 +35,6 @@ const createServer = async () => {
       googleAuth
     )
 
-    app.get(
-      '/auth/google/callback',
-      passport.authenticate('google', {
-        session: false,
-        failureRedirect: 'https://client492.herokuapp.com/signIn',
-      }),
-      googleAuthDriver
-    )
-
     app.listen(process.env.PORT || 4000,process.env.LOCAL_ADDRESS, () =>
       console.log(`Server run on http://localhost:4000${server.graphqlPath}`)
     )

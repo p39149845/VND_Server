@@ -31,7 +31,7 @@ export const googleAuth = async (req, res) => {
       })
     }
     res.cookie('jwt', token)
-    res.redirect('https://client492.herokuapp.com/')
+    res.redirect('https://client492.herokuapp.com')
   } catch (error) {
     res.redirect('https://client492.herokuapp.com/signIn')
   }
@@ -67,7 +67,7 @@ export const googleAuthDriver = async (req, res) => {
       })
     }
     res.cookie('jwt', token)
-    res.redirect('https://client492.herokuapp.com/')
+    res.redirect('https://client492.herokuapp.com')
   } catch (error) {
     res.redirect('https://client492.herokuapp.com/signUpDriver')
   }
