@@ -5,7 +5,7 @@ import dotenv from "dotenv"
 import passport from 'passport'
 
 import { googlePassportConfig } from './utils/passport'
-import { googleAuth } from './utils/socialProvidersAuth'
+import { googleAuth,googleAuthDriver } from './utils/socialProvidersAuth'
 
 dotenv.config()
 googlePassportConfig()
@@ -30,9 +30,18 @@ const createServer = async () => {
       '/auth/google/callback',
       passport.authenticate('google', {
         session: false,
-        failureRedirect: 'http://localhost:3000/signIn',
+        failureRedirect: 'https://client492.herokuapp.com//signIn',
       }),
       googleAuth
+    )
+
+    app.get(
+      '/auth/google/callback',
+      passport.authenticate('google', {
+        session: false,
+        failureRedirect: 'https://client492.herokuapp.com//signUpDriver',
+      }),
+      googleAuthDriver
     )
 
     app.listen(process.env.PORT || 4000,process.env.LOCAL_ADDRESS, () =>
