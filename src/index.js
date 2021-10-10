@@ -30,7 +30,7 @@ const createServer = async () => {
       '/auth/google/callback',
       passport.authenticate('google', {
         session: false,
-        failureRedirect: 'https://client492.herokuapp.com/signIn' || 'https://client492.herokuapp.com/signUp',
+        failureRedirect: 'https://client492.herokuapp.com/signIn',
       }),
       googleAuth
     )
