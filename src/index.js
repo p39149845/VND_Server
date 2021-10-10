@@ -5,7 +5,7 @@ import dotenv from "dotenv"
 import passport from 'passport'
 
 import { googlePassportConfig } from './utils/passport'
-import { googleAuth,googleAuthDriver } from './utils/socialProvidersAuth'
+import { googleAuth } from './utils/socialProvidersAuth'
 
 dotenv.config()
 googlePassportConfig()
