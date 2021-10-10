@@ -8,7 +8,7 @@ export const googlePassportConfig = () => {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: 'http://localhost:4000/auth/google/callback',
+        callbackURL: 'https://server492.herokuapp.com/auth/google',
         passReqToCallback: true,
       },
       function (req, accessToken, refreshToken, profile, done) {
