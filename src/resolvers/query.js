@@ -15,7 +15,7 @@ const Query = {
       .populate({
         path: "vehicles",
         options: { sort: { vehicleCreatedAt: 'desc' } },
-        populate: { path: "user" }
+        populate: { path: "user" , populate: { path: "review" }}
       })
 
       .populate({
