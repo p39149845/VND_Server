@@ -19,7 +19,6 @@ const VehicleSchema = new mongoose.Schema({
   },
   additional: [{
     type: String,
-    required: true,
     trim: true
   }],
   country: {
