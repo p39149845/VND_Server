@@ -13,8 +13,8 @@ type Query {
 type Mutation {
   login(email:String! password:String!):AuthDataUser
 
-  signup(name: String!, email: String!, password: String!): User
-  signupDriver(name: String!, email: String!, password: String! , status:Boolean!): User
+  signup(name: String!, email: String!, password: String!,phoneNumber:Int!): User
+  signupDriver(name: String!, email: String!, password: String! , status:Boolean!,phoneNumber:Int!): User
 
   loginAdmin(email:String! password:String!):AuthDataAdmin
 
@@ -107,6 +107,7 @@ scalar Date
 type User {
   id: ID!
   name: String!
+  phoneNumber: Int!
   email: String!
   password: String!
   status: Boolean!
